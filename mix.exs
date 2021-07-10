@@ -7,14 +7,28 @@ defmodule Identicon.MixProject do
       version: "0.1.0",
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+
+      # Docs
+      name: "Identicon",
+      source_url: "https://github.com/leoyassuda/identicon",
+      # homepage_url: "http://YOUR_PROJECT_HOMEPAGE",
+      docs: [
+        # The main page in the docs
+        main: "Identicon",
+        logo: "img/logo.png",
+        extras: ["README.md"]
+      ],
+
+      # Coverage
+      test_coverage: [tool: CoverModule]
     ]
   end
 
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger]
+      extra_applications: [:logger, :crypto]
     ]
   end
 
@@ -23,6 +37,8 @@ defmodule Identicon.MixProject do
     [
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+      {:egd, github: "erlang/egd"},
+      {:ex_doc, "~> 0.24"}
     ]
   end
 end
